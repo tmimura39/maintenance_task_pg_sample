@@ -38,5 +38,10 @@ module MaintenanceTaskPgSample
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # see. https://github.com/rails/rails/commit/f65d5928af99e1f4acea7ac81b9a35030a55bc1b
+    ActiveSupport.on_load(:active_record_postgresqladapter) do
+      self.datetime_type = :timestamptz
+    end
   end
 end
