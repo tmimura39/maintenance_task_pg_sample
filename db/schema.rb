@@ -16,8 +16,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_19_051216) do
 
   create_table "maintenance_tasks_runs", force: :cascade do |t|
     t.string "task_name", null: false
-    t.timestamp "started_at"
-    t.timestamp "ended_at"
+    t.datetime "started_at"
+    t.datetime "ended_at"
     t.float "time_running", default: 0.0, null: false
     t.bigint "tick_count", default: 0, null: false
     t.bigint "tick_total"
@@ -27,8 +27,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_19_051216) do
     t.string "error_class"
     t.string "error_message"
     t.text "backtrace"
-    t.timestamp "created_at", precision: 6, null: false
-    t.timestamp "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "arguments"
     t.integer "lock_version", default: 0, null: false
     t.text "metadata"

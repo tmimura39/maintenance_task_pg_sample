@@ -21,8 +21,8 @@ SET default_table_access_method = heap;
 CREATE TABLE public.ar_internal_metadata (
     key character varying NOT NULL,
     value character varying,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    created_at timestamp(6) with time zone NOT NULL,
+    updated_at timestamp(6) with time zone NOT NULL
 );
 
 
@@ -33,8 +33,8 @@ CREATE TABLE public.ar_internal_metadata (
 CREATE TABLE public.maintenance_tasks_runs (
     id bigint NOT NULL,
     task_name character varying NOT NULL,
-    started_at timestamp without time zone,
-    ended_at timestamp without time zone,
+    started_at timestamp(6) with time zone,
+    ended_at timestamp(6) with time zone,
     time_running double precision DEFAULT 0.0 NOT NULL,
     tick_count bigint DEFAULT 0 NOT NULL,
     tick_total bigint,
@@ -44,8 +44,8 @@ CREATE TABLE public.maintenance_tasks_runs (
     error_class character varying,
     error_message character varying,
     backtrace text,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL,
+    created_at timestamp(6) with time zone NOT NULL,
+    updated_at timestamp(6) with time zone NOT NULL,
     arguments text,
     lock_version integer DEFAULT 0 NOT NULL,
     metadata text
